@@ -106,7 +106,67 @@ class APIManager { // GetTokenAPI
                     print("呼叫API")
                     
                 } catch {
-                    print(utf8Text) //就是靠這個才發現，我在 EndPoint 中 case .productForMen: return "products/men" 多加一個斜線
+//                    print(utf8Text) //就是靠這個才發現，我在 EndPoint 中 case .productForMen: return "products/men" 多加一個斜線
+                    print("解析錯誤")
+                }
+                
+                print("success")
+            } else if statustCode >= 400 && statustCode < 500 {
+                
+                print("Client Error")
+            } else {
+                
+                print("server error")
+            }
+            }.resume()
+        
+    }
+    
+    func getNextHotList(next urlString:String) {
+        let encoder = JSONEncoder()
+        let url = URL(string: urlString)
+        var request = URLRequest(url: url!)
+        request.httpMethod = "GET"
+        guard let token = keychain["accessToken"] else { return}
+        
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { [weak self](data, reponse, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            guard let httpResponse = reponse as? HTTPURLResponse else { return }
+            
+            let statustCode = httpResponse.statusCode
+            
+            if statustCode >= 200 && statustCode <= 300 {
+                
+                //Success
+                
+                guard let data = data, let utf8Text = String(data: data, encoding: .utf8) else {
+                    print("no data")
+                    return
+                }
+                //                                print(data)
+                //                                print(utf8Text)
+//                這個方法可以印出不合規定的 data，用來檢查
+                let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+                
+                
+//                print("==================================jsopn======")
+//                print(json)
+//                print("==================================jsopn======")
+                do {
+                    let decoder = JSONDecoder()
+                    let decodeData = try decoder.decode(PurpleData.self, from: data)
+                    
+                    self?.delegate?.didGetNextHotList(didGet: decodeData)
+                    
+                    print("呼叫API")
+                    
+                } catch {
+//                    print(utf8Text) //就是靠這個才發現，我在 EndPoint 中 case .productForMen: return "products/men" 多加一個斜線
                     print("解析錯誤")
                 }
                 
@@ -220,6 +280,8 @@ protocol GetTokenAPIDelegate: AnyObject {
     func didGetToken()
     
     func didGetHotList(didGet data: PurpleData)
+    
+    func didGetNextHotList(didGet data: PurpleData)
 }
 
 extension Data{

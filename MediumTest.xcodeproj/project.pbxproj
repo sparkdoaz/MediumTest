@@ -12,6 +12,7 @@
 		FC888236230FB3FF008838AE /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC888235230FB3FF008838AE /* cell.swift */; };
 		FC888238230FBE83008838AE /* HotList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC888237230FBE83008838AE /* HotList.swift */; };
 		FC88823A230FCF00008838AE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC888239230FCF00008838AE /* StorageManager.swift */; };
+		FC88823D230FD0CD008838AE /* HotListData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC88823B230FD0CD008838AE /* HotListData.xcdatamodeld */; };
 		FC9730FB230F763B00A0F75C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9730FA230F763B00A0F75C /* AppDelegate.swift */; };
 		FC9730FD230F763B00A0F75C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9730FC230F763B00A0F75C /* ViewController.swift */; };
 		FC973100230F763B00A0F75C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9730FE230F763B00A0F75C /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		FC888235230FB3FF008838AE /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
 		FC888237230FBE83008838AE /* HotList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotList.swift; sourceTree = "<group>"; };
 		FC888239230FCF00008838AE /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		FC88823C230FD0CD008838AE /* HotListData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HotListData.xcdatamodel; sourceTree = "<group>"; };
 		FC9730F7230F763B00A0F75C /* MediumTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9730FA230F763B00A0F75C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC9730FC230F763B00A0F75C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				FC888235230FB3FF008838AE /* cell.swift */,
 				FC888237230FBE83008838AE /* HotList.swift */,
 				FC888239230FCF00008838AE /* StorageManager.swift */,
+				FC88823B230FD0CD008838AE /* HotListData.xcdatamodeld */,
 			);
 			path = MediumTest;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9730FD230F763B00A0F75C /* ViewController.swift in Sources */,
+				FC88823D230FD0CD008838AE /* HotListData.xcdatamodeld in Sources */,
 				FC888238230FBE83008838AE /* HotList.swift in Sources */,
 				FC888236230FB3FF008838AE /* cell.swift in Sources */,
 				FC88823A230FCF00008838AE /* StorageManager.swift in Sources */,
@@ -426,6 +430,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FC88823B230FD0CD008838AE /* HotListData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FC88823C230FD0CD008838AE /* HotListData.xcdatamodel */,
+			);
+			currentVersion = FC88823C230FD0CD008838AE /* HotListData.xcdatamodel */;
+			path = HotListData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FC9730EF230F763B00A0F75C /* Project object */;
 }

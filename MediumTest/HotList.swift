@@ -69,6 +69,7 @@ struct Image: Codable {
 struct Paging: Codable {
     let offset, limit: Int
     let next: String
+//    let next: JSONNull?
     let previosu: JSONNull?  //當offset 為0 時 就為 null 。
 }
 

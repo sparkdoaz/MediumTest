@@ -8,12 +8,11 @@
 
 import UIKit
 import Kingfisher
+import CoreData
+import MJRefresh
 
 class ViewController: UIViewController {
-    @IBAction func test(_ sender: Any) {
-        
-        manager.getHotList()
-    }
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,7 +21,14 @@ class ViewController: UIViewController {
     
     var save: PurpleData?
     
-    var 
+    var hotlistdata: [Datum]?
+    
+    
+    var nextPage: String?
+    
+    let header = MJRefreshNormalHeader()
+    
+    let footer = MJRefreshAutoNormalFooter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +44,25 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         
         manager.getHotList()
+        
+        footer.setRefreshingTarget(self, refreshingAction: #selector(loadmoreData))
+        
+        tableView.mj_footer = footer
 
     }
     
     let imageHeight = UIScreen.main.bounds.width //與寬度等同
+    
+    @objc func loadmoreData() {
+
+        print(nextPage)
+        if nextPage != nil {
+            manager.getNextHotList(next: nextPage!)
+        }
+        
+        
+        
+    }
 
 
 }
@@ -69,18 +90,19 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return save?.data.count ?? 0
+        return hotlistdata?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? HotListCell else {return UITableViewCell()}
         
-        guard let save = save else { return cell}
         
-        cell.trackLabel.text = save.data[indexPath.row].name
+        guard let hotlistdata = hotlistdata else { return cell}
+
+        cell.trackLabel.text = hotlistdata[indexPath.row].name
         
-        let imageurl = URL(string: save.data[indexPath.row].album.images[0].url)
+        let imageurl = URL(string: hotlistdata[indexPath.row].album.images[0].url)
         
         cell.cdImage.kf.setImage(with: imageurl)
         
@@ -94,16 +116,33 @@ extension ViewController: UITableViewDataSource {
 
 
 extension ViewController: GetTokenAPIDelegate {
+    func didGetNextHotList(didGet data: PurpleData) {
+        save = data
+        guard let save = save else { return}
+        nextPage = save.paging.next
+        hotlistdata?.append(contentsOf: save.data)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        print(hotlistdata?.count)
+        footer.endRefreshing()
+
+    }
+    
     func didGetHotList(didGet data: PurpleData) {
         save = data
         guard let save = save else { return}
         
-        print(save)
+        nextPage = save.paging.next
+        hotlistdata = save.data
+//        print(save)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
-        
+        print("First")
+        print(hotlistdata?.count)
+        print("firstNextPAge\(nextPage)")
     }
     
     func didGetToken() {
@@ -111,4 +150,24 @@ extension ViewController: GetTokenAPIDelegate {
     }
     
     
+}
+
+extension ViewController {
+    func saveToCoreData(index: IndexPath) {
+        let manageContext = StorageManager.sharedManager.persistentContainer.viewContext
+        
+//        guard let hotListEntity = NSEntityDescription.entity(forEntityName: "Entity", in: manageContext) else {
+//            return
+//        }
+//
+//        let requeset = NSFetchRequest<Entity>(entityName: "Entity")
+        guard let save = save else { return}
+        
+        for number in 0...save.data.count {
+            
+        }
+        let  order = Entity(context: manageContext)
+        order.index = Int32(index.row)
+//        order.iamge =
+    }
 }
