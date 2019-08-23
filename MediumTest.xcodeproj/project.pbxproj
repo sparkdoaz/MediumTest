@@ -3,24 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		E486C31CC1755A3CABD14BCC /* Pods_MediumTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6165BD22AB186AE821F10EAF /* Pods_MediumTest.framework */; };
+		FC888234230FACFA008838AE /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC888233230FACFA008838AE /* SecondViewController.swift */; };
+		FC888236230FB3FF008838AE /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC888235230FB3FF008838AE /* cell.swift */; };
+		FC888238230FBE83008838AE /* HotList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC888237230FBE83008838AE /* HotList.swift */; };
+		FC88823A230FCF00008838AE /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC888239230FCF00008838AE /* StorageManager.swift */; };
 		FC9730FB230F763B00A0F75C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9730FA230F763B00A0F75C /* AppDelegate.swift */; };
 		FC9730FD230F763B00A0F75C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9730FC230F763B00A0F75C /* ViewController.swift */; };
 		FC973100230F763B00A0F75C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC9730FE230F763B00A0F75C /* Main.storyboard */; };
 		FC973102230F763C00A0F75C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC973101230F763C00A0F75C /* Assets.xcassets */; };
 		FC973105230F763C00A0F75C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC973103230F763C00A0F75C /* LaunchScreen.storyboard */; };
 		FC97310D230F774D00A0F75C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97310C230F774D00A0F75C /* API.swift */; };
-		FC97310F230F79B800A0F75C /* GetToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC97310E230F79B800A0F75C /* GetToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6165BD22AB186AE821F10EAF /* Pods_MediumTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MediumTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934FF38987026DAFA63EB2F6 /* Pods-MediumTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediumTest.release.xcconfig"; path = "Target Support Files/Pods-MediumTest/Pods-MediumTest.release.xcconfig"; sourceTree = "<group>"; };
 		DFD854E91BB791F0D7379C86 /* Pods-MediumTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MediumTest.debug.xcconfig"; path = "Target Support Files/Pods-MediumTest/Pods-MediumTest.debug.xcconfig"; sourceTree = "<group>"; };
+		FC888233230FACFA008838AE /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		FC888235230FB3FF008838AE /* cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cell.swift; sourceTree = "<group>"; };
+		FC888237230FBE83008838AE /* HotList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotList.swift; sourceTree = "<group>"; };
+		FC888239230FCF00008838AE /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		FC9730F7230F763B00A0F75C /* MediumTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC9730FA230F763B00A0F75C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC9730FC230F763B00A0F75C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,7 +36,6 @@
 		FC973104230F763C00A0F75C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC973106230F763C00A0F75C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC97310C230F774D00A0F75C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
-		FC97310E230F79B800A0F75C /* GetToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +56,6 @@
 				DFD854E91BB791F0D7379C86 /* Pods-MediumTest.debug.xcconfig */,
 				934FF38987026DAFA63EB2F6 /* Pods-MediumTest.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +88,7 @@
 		FC9730F9230F763B00A0F75C /* MediumTest */ = {
 			isa = PBXGroup;
 			children = (
+				FC888233230FACFA008838AE /* SecondViewController.swift */,
 				FC9730FA230F763B00A0F75C /* AppDelegate.swift */,
 				FC9730FC230F763B00A0F75C /* ViewController.swift */,
 				FC9730FE230F763B00A0F75C /* Main.storyboard */,
@@ -90,7 +96,9 @@
 				FC973103230F763C00A0F75C /* LaunchScreen.storyboard */,
 				FC973106230F763C00A0F75C /* Info.plist */,
 				FC97310C230F774D00A0F75C /* API.swift */,
-				FC97310E230F79B800A0F75C /* GetToken.swift */,
+				FC888235230FB3FF008838AE /* cell.swift */,
+				FC888237230FBE83008838AE /* HotList.swift */,
+				FC888239230FCF00008838AE /* StorageManager.swift */,
 			);
 			path = MediumTest;
 			sourceTree = "<group>";
@@ -211,8 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC9730FD230F763B00A0F75C /* ViewController.swift in Sources */,
+				FC888238230FBE83008838AE /* HotList.swift in Sources */,
+				FC888236230FB3FF008838AE /* cell.swift in Sources */,
+				FC88823A230FCF00008838AE /* StorageManager.swift in Sources */,
 				FC97310D230F774D00A0F75C /* API.swift in Sources */,
-				FC97310F230F79B800A0F75C /* GetToken.swift in Sources */,
+				FC888234230FACFA008838AE /* SecondViewController.swift in Sources */,
 				FC9730FB230F763B00A0F75C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

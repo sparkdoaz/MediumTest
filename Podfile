@@ -8,4 +8,6 @@ target 'MediumTest' do
   # Pods for MediumTest
 pod 'Alamofire', '~> 5.0.0-beta.5'
   pod 'KeychainAccess'
+    pod 'Kingfisher'
+    pod 'MJRefresh'
 end
